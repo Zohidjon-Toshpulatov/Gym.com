@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+
+@tailwind utilities;
+
+@layer components{
+    .nav-link{
+        @apply text-black text-sm font-semibold lg:hover:text-link-hover leading-none;
+    }
+
+    .btn{
+        @apply leading-none font-semibold text-sm border rounded-[5px];
+    }
+    .footer-link{
+        @apply text-black font-semibold
+    }
+}
