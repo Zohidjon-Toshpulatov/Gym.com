@@ -1,5 +1,5 @@
-<nav class="nav bg-white fixed w-full">
-    <div class="hidden lg:flex justify-between items-center py-10 pl-40 pr-4 shadow-lg">
+<nav class="nav  fixed w-full z-20">
+    <div class="hidden lg:flex justify-between items-center py-10 pl-40 pr-4 shadow-lg bg-white">
         <div class="flex items-center">
             <img src="./../../../assets/logo.png" alt="logo" class="w-8">
             <p class="text-sm font-bold ml-1.5">Gym.com</p>
@@ -20,17 +20,63 @@
             </a>
         </div>
     </div>
-    <div class="">
-        <div class="">
-            <div class="flex justify-between items-center w-64">
-                <div class="flex items-center">
-                    <img src="../../../assets/logo.png" alt="logo" class="w-8 h-8 mr-2">
-                    <a href="#" class="text-black text-sm font-bold tracking-tight">Gym.com</a>
-                </div>
-                <button>
-                    <img src="../../../assets/left-arrow.png" alt="arrow" class="">
-                </button>
+    <div class="relative min-h-screen md:flex">
+
+        <!-- mobile menu bar -->
+        <div class="bg-white text-gray-100 flex justify-between md:hidden">
+            <!-- mobile menu button -->
+            <button class="mobile-menu-button p-4 focus:outline-none focus:bg-body text-gray-500"
+                (click)="isClosed=!isClosed">
+                <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+            <div class="flex justify-center mx-auto">
+                <!-- logo -->
+                <a href="#" class="p-4 text-gray-900 font-bold flex items-center justify-around mx-auto">
+                    <img src="../../../assets/logo.png" alt="logo" class="w-8 pr-2">
+                    <a href="#" class="text-sm font-bold">Gym.com</a>
+                </a>
             </div>
         </div>
+
+        <!-- sidebar -->
+        <div class="sidebar bg-white w-80  space-y-6 absolute inset-y-0 left-0 
+            transform transition  duration-200 ease-in-out lg:hidden" [ngClass]="{'-translate-x-full': isClosed}">
+            <div class="border-b border-border-color px-[66px] pt-[83px] pb-5">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <img src="../../../assets/logo.png" alt="logo" class="w-8 pr-1">
+                        <a href="#" class="text-sm font-bold">Gym.com</a>
+                    </div>
+                    <button (click)="isClosed=!isClosed">
+                        <img src="../../../assets/left-arrow.png" alt="leftarrow" class="w-6">
+                    </button>
+                </div>
+                <nav class="space-y-7 mt-16">
+                    <a href="#" class="sidebar-link">
+                        Home
+                    </a>
+                    <a href="#" class="sidebar-link">Places</a>
+                    <a href="#" class="sidebar-link">Equipment</a>
+                    <a href="#" class="sidebar-link">Collections</a>
+                    <a href="#" class="sidebar-link">Blog</a>
+                </nav>
+            </div>
+            <div class="pt-4 px-[66px]">
+                <a href="#" class="block text-gray-700 text-sm font-semibold mb-10">Sign in</a>
+                <a href="#" class="sidebar-link mb-4">Coming Soon</a>
+                <div class="flex flex-col">
+                    <a href="#" class="mb-2.5">
+                        <img src="../../../assets/appstore.png" alt="appstore" class="rounded-[5px] h-12 w-40">
+                    </a>
+                    <a href="#">
+                        <img src="../../../assets/googleplay.png" alt="googleplay" class="rounded-[5px] h-12 w-40">
+                    </a>
+                </div>
+            </div>
+        </div>
+
     </div>
 </nav>

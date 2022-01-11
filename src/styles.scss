@@ -9,6 +9,10 @@
         @apply text-gray-700 text-sm font-semibold lg:hover:text-link-hover leading-none;
     }
 
+    .sidebar-link{
+        @apply block text-black font-semibold text-sm;
+    }
+
     .btn{
         @apply leading-none font-semibold text-sm border rounded-[5px];
     }
