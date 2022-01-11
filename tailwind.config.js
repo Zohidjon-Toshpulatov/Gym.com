@@ -13,7 +13,8 @@ module.exports = {
         'light-black': '#334155',
       },
       spacing: {
-        '7.5': '1.875rem'
+        '7.5': '1.875rem',
+        '33': '8.25rem'
       }
     },
   },
