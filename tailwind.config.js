@@ -10,7 +10,11 @@ module.exports = {
         'btn-blue': '#3679F6',
         'link-hover': '#2056AE',
         'boder-color': '#E2E8F0',
+        'light-black': '#334155',
       },
+      spacing: {
+        '7.5': '1.875rem'
+      }
     },
   },
   plugins: [],

@@ -6,13 +6,25 @@
 
 @layer components{
     .nav-link{
-        @apply text-black text-sm font-semibold lg:hover:text-link-hover leading-none;
+        @apply text-gray-700 text-sm font-semibold lg:hover:text-link-hover leading-none;
     }
 
     .btn{
         @apply leading-none font-semibold text-sm border rounded-[5px];
     }
+
+    .workout-steps-label{
+        @apply py-2 rounded-[30px] text-white font-bold tracking-tight w-16 h-9 leading-none text-center
+    }
+
+    .workout-steps-heading{
+        @apply text-gray-900 text-2xl font-semibold tracking-tight my-4;
+    }
+    .workout-steps-para{
+        @apply text-gray-700 text-base;
+    }
+
     .footer-link{
-        @apply text-black font-semibold
+        @apply text-black font-semibold text-sm lg:text-base 
     }
 }
