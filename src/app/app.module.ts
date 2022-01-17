@@ -10,6 +10,12 @@ import { HomeComponent } from './components/home/home.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { EquipmentComponent } from './components/equipment/equipment.component';
 import { PostComponent } from './components/post/post.component';
+import { LoginModalComponent } from './components/navbar/login-modal/login-modal.component';
+import { EmailLoginModalComponent } from './components/navbar/email-login-modal/email-login-modal.component';
+import { VipCodeModalComponent } from './components/navbar/vip-code-modal/vip-code-modal.component';
+import { WelcomeVipModalComponent } from './components/navbar/welcome-vip-modal/welcome-vip-modal.component';
+import { ReserveUsernameModalComponent } from './components/home/reserve-username-modal/reserve-username-modal.component';
+import { WaitlistModalComponent } from './components/home/waitlist-modal/waitlist-modal.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +26,13 @@ import { PostComponent } from './components/post/post.component';
     HomeComponent,
     BlogComponent,
     EquipmentComponent,
-    PostComponent
+    PostComponent,
+    LoginModalComponent,
+    EmailLoginModalComponent,
+    VipCodeModalComponent,
+    WelcomeVipModalComponent,
+    ReserveUsernameModalComponent,
+    WaitlistModalComponent
   ],
   imports: [
     BrowserModule,

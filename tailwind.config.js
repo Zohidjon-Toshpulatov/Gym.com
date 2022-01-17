@@ -7,6 +7,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         '-blog-header-pattern': "url('/assets/blog-header.png')",
+        '-blog-header-pattern-md': "url('/assets/blog-header-md.png')",
       },
       colors: {
         'body': '#F8FAFC',

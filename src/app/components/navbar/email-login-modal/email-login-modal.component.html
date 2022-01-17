@@ -1,0 +1,52 @@
+<div [ngClass]="{'hidden': isEmailLoginHidden}" #emailLoginModal (click)="onToggleModal($event)"
+    class="hidden min-h-screen bg-black bg-opacity-30 z-40 fixed left-0 top-0 w-full h-full pt-[5%] px-4 sm:px-8 overflow-scroll">
+    <div class="md:w-[38.125rem] mx-auto bg-white rounded-2xl md:flex ">
+        <button class="w-3 h-3 mt-3 ml-3">
+            <img src="../../../assets/close-icon.png" alt="close icon" class="w-full" (click)="onClose()">
+        </button>
+        <div class="md:flex-[95%] pt-6 pb-10 md:pb-12 flex flex-col md:items-center">
+            <img src="../../../assets/logo-bif.png" alt="logo" class="w-20 md:w-26 mx-auto">
+            <h2 class="text-2xl md:text-4xl text-center font-semibold my-8 md:my-12">Sign in to your account</h2>
+            <div class="flex justify-center md:justify-evenly ">
+                <a href="#"
+                    class="flex items-center rounded-15px border border-boder-color py-5px px-6 md:py-2 md:px-15">
+                    <img src="../../../assets/google.png" alt="google" class="w-5 md:w-7.5">
+                </a>
+                <a href=""
+                    class="flex items-center rounded-15px border border-boder-color py-5px px-6 md:py-2 md:px-15 mx-5">
+                    <img src="../../../assets/facebook-white.png" alt="twitter" class="w-5 md:w-7.5">
+                </a>
+                <a href=""
+                    class="flex items-center rounded-15px border border-boder-color py-5px px-6 md:py-2 md:px-15">
+                    <img src="../../../assets/twitter-bg-white.png" alt="twitter" class="w-5 md:w-7.5">
+                </a>
+            </div>
+            <div class="md:w-full flex items-center my-6 md:my-10 px-3.5">
+                <div class="border-t-2 border-boder-color flex-[25%]"></div>
+                <h1 class="text-sm md:text-2xl flex-40% md:flex-[50%] leading-none text-center">Or sign up with email
+                </h1>
+                <div class="border-t-2 border-boder-color flex-[25%]"></div>
+            </div>
+            <form action="" class="flex flex-col px-5 md:pl-11 md:pr-14 w-full">
+                <input type="email" name="" class="text-2xl py-5 rounded-10px shadow-xl px-5 mb-5 md:mb-10"
+                    placeholder="Email Address">
+                <input type="password" name="" class="text-2xl py-5 rounded-10px shadow-xl px-5 mb-5 md:mb-10"
+                    placeholder="Password">
+                <div class="flex justify-between items-center">
+                    <div class="items-center">
+                        <input type="checkbox" name="remember" id="remember">
+                        <label for="remember">Remember me</label>
+                    </div>
+                    <a href="#" class="">
+                        Forgot password
+                    </a>
+                </div>
+                <button
+                    class="text-white bg-btn-blue rounded-10px font-semibold text-2xl px-9 py-3 md:py-5 mx-auto block mt-7 md:mt-10"
+                    type="submit">
+                    Submit
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

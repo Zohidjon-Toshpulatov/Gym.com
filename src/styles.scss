@@ -13,6 +13,10 @@
         @apply block text-black font-semibold text-sm;
     }
 
+    .active{
+        @apply text-btn-blue;
+    }
+
     .btn{
         @apply leading-none font-semibold text-sm border rounded-[5px];
     }

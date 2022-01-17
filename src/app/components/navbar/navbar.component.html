@@ -1,26 +1,28 @@
-<nav class="nav  fixed w-full z-20">
-    <div class="hidden lg:flex justify-between items-center py-10 pl-40 pr-4 shadow-lg bg-white">
+<nav class="nav fixed w-full z-20">
+    <div class="hidden md:flex justify-between items-center py-5 lg:py-10 md:px-4 lg:pl-40 shadow-lg bg-white">
         <div class="flex items-center">
             <img src="./../../../assets/logo.png" alt="logo" class="w-8">
-            <p class="text-sm font-bold ml-1.5">Gym.com</p>
+            <a routerLink="/" class="text-sm font-bold ml-1.5">Gym.com</a>
         </div>
-        <div class="flex items-center space-x-10">
-            <a routerLink="/" class="nav-link">Home</a>
-            <a href="#" class="nav-link">Places</a>
-            <a routerLink="/equipment" class="nav-link">Equipment</a>
-            <a href="#" class="nav-link">Collections</a>
-            <a routerLink="/blog" class="nav-link">Blog</a>
+        <div class="flex items-center md:space-x-5 lg:space-x-10">
+            <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
+                class="nav-link">Home</a>
+            <a routerLink="/" class="nav-link">Places</a>
+            <a routerLink="/equipment" routerLinkActive="active" class="nav-link">Equipment</a>
+            <a routerLink="/" class="nav-link">Collections</a>
+            <a routerLink="/blog" routerLinkActive="active" class="nav-link">Blog</a>
         </div>
         <div class="button-group">
-            <a href="#" class="btn bg-btn-blue py-3 px-6 text-white mr-3 border-btn-blue">
+            <button (click)="isLoginHidden=!isLoginHidden"
+                class="btn bg-btn-blue py-3 px-6 text-white mr-3 border-btn-blue">
                 Login
-            </a>
-            <a href="#" class="btn py-3 px-1.5  text-black  border-boder-color">
+            </button>
+            <button class="btn py-3 px-1.5  text-black  border-boder-color" (click)="isVipCodeHidden=!isVipCodeHidden">
                 Have a VIP code?
-            </a>
+            </button>
         </div>
     </div>
-    <div class="relative min-h-screen md:flex">
+    <div class="relative min-h-screen md:min-h-0 lg:flex">
 
         <!-- mobile menu bar -->
         <div class="bg-white text-gray-100 flex justify-between md:hidden">
@@ -55,17 +57,21 @@
                     </button>
                 </div>
                 <nav class="space-y-7 mt-16">
-                    <a routerLink="/" class="sidebar-link">
+                    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
+                        class=" sidebar-link">
                         Home
                     </a>
-                    <a href="#" class="sidebar-link">Places</a>
-                    <a routerLink="/equipment" class="sidebar-link">Equipment</a>
-                    <a href="#" class="sidebar-link">Collections</a>
-                    <a routerLink="/blog" class="sidebar-link">Blog</a>
+                    <a routerLink="/" class="sidebar-link">Places</a>
+                    <a routerLink="/equipment" routerLinkActive="active" class="sidebar-link">
+                        Equipment
+                    </a>
+                    <a routerLink="/" class="sidebar-link">Collections</a>
+                    <a routerLink="/blog" routerLinkActive="active" class="sidebar-link">Blog</a>
                 </nav>
             </div>
             <div class="pt-4 px-[66px]">
-                <a href="#" class="block text-gray-700 text-sm font-semibold mb-10">Sign in</a>
+                <button class="block text-gray-700 text-sm font-semibold mb-10"
+                    (click)="isLoginHidden=!isLoginHidden">Sign in</button>
                 <a href="#" class="sidebar-link mb-4">Coming Soon</a>
                 <div class="flex flex-col">
                     <a href="#" class="mb-2.5">
@@ -81,146 +87,8 @@
     </div>
 </nav>
 
-<div class="hidden min-h-screen bg-black bg-opacity-30 z-40 fixed left-0 top-0 w-full h-full pt-[20%] md:pt-[7%] px-8">
-    <div class="w-full md:w-[38.125rem] mx-auto bg-white rounded-2xl flex">
-        <button class="w-3 h-3 mt-3 ml-3 hidden md:block">
-            <img src="../../../assets/close-icon.png" alt="close icon" class="w-full">
-        </button>
-        <div class="md:flex-[95%] px-4 md:px-7.5 md:pl-[44px] md:pr-14 pt-6 pb-10 md:pb-[73px]">
-            <img src="../../../assets/logo-bif.png" alt="logo" class="w-20 md:w-[98px] mx-auto mb-5">
-            <h2 class="text-2xl md:text-3xl text-center font-semibold mb-0">Have a VIP code?</h2>
-            <h2 class="text-2xl md:text-3xl text-center font-semibold mb-5 md:mb-7">Let’s get started today!</h2>
-            <form class="flex pl-4 pr-0 md:pl-10 md:pr-12 py-3 md:py-7 shadow-xl rounded-10px">
-                <input type="text" class="text-base md:text-xl w-1/2 mr-5" placeholder="Enter VIP Code">
-                <button class="bg-btn-blue text-sm font-semibold text-white px-2 md:px-9 py-3 md:py-6 rounded-10px">
-                    Unlock Access
-                </button>
-            </form>
-        </div>
-    </div>
-</div>
+<app-login-modal [isLoginHidden]="isLoginHidden" (openEmailLogin)="onEmailLogin()"></app-login-modal>
+<app-email-login-modal [isEmailLoginHidden]="isEmailLoginHidden"></app-email-login-modal>
 
-<div class="hidden min-h-screen bg-black bg-opacity-30 z-40 fixed left-0 top-0 w-full h-full pt-[20%] md:pt-[7%] px-8">
-    <div class="w-full md:w-[38.125rem] mx-auto bg-white rounded-2xl flex">
-        <button class="w-3 h-3 mt-3 ml-3 hidden md:block">
-            <img src="../../../assets/close-icon.png" alt="close icon" class="w-full">
-        </button>
-        <div class="flex-[95%] px-2 md:px-5 md:pl-[44px] md:pr-14 pt-6 pb-10 md:pb-[73px]">
-            <img src="../../../assets/logo-bif.png" alt="logo" class="w-10 md:w-26 mx-auto mb-5">
-            <h1 class="text-base md:text-[50px] text-center font-semibold mb-2.5 md:mb-5">Welcome VIP</h1>
-            <h2 class="text-xs md:text-2xl text-center mb-5 md:mb-14">
-                Already have an account?
-                <a href="#" class="text-btn-blue">Sign in</a>
-            </h2>
-            <div class="flex justify-center md:justify-evenly">
-                <a href="#"
-                    class="flex items-center rounded-15px border border-boder-color py-5px px-6 md:py-2 md:pr-2 md:pl-0">
-                    <img src="../../../assets/google.png" alt="google" class="w-5 md:w-7.5 mr-1">
-                    <span class="text-xs hidden md:block">Sign up with Google</span>
-                </a>
-                <a href=""
-                    class="flex items-center rounded-15px border border-boder-color py-5px px-6 md:py-2 md:pr-2 md:pl-0 mx-2.5">
-                    <img src="../../../assets/facebook-white.png" alt="twitter" class="w-5 md:w-7.5 mr-1">
-                    <span class="text-xs hidden md:block">Sign up with Facebook</span>
-                </a>
-                <a href=""
-                    class="flex items-center rounded-15px border border-boder-color py-5px px-6 md:py-2 md:pr-2 md:pl-0">
-                    <img src="../../../assets/twitter-bg-white.png" alt="twitter" class="w-5 md:w-7.5 mr-1">
-                    <span class="text-xs hidden md:block">Sign up with Twitter</span>
-                </a>
-            </div>
-            <div class="flex items-center my-6 md:my-10">
-                <div class="border-t-2 border-boder-color flex-[25%]"></div>
-                <h1 class="text-sm md:text-2xl flex-[50%] leading-none text-center">Or sign up with email</h1>
-                <div class="border-t-2 border-boder-color flex-[25%]"></div>
-            </div>
-            <form class="flex pl-2 md:pl-10 pr-2 md:pr-12 py-3 md:py-7 shadow-xl rounded-10px justify-between">
-                <input type="email" class="text-xl w-1/2 mr-5" placeholder="jimbo@email.from.VIP">
-                <button class="bg-btn-blue text-xs md:text-sm font-semibold text-white px-1 md:px-4 py-6 rounded-10px">
-                    Continue with email
-                </button>
-            </form>
-        </div>
-    </div>
-</div>
-
-<div
-    class="hidden min-h-screen bg-black bg-opacity-30 z-40 fixed left-0 top-0 w-full h-full pt-[20%] md:pt-[7%] px-4 sm:px-8">
-    <div class="w-full md:w-[38.125rem] mx-auto bg-white rounded-2xl flex">
-        <button class="w-3 h-3 mt-3 ml-3 hidden md:block">
-            <img src="../../../assets/close-icon.png" alt="close icon" class="w-full">
-        </button>
-        <div class="flex-[95%] pt-6 pb-10 md:pb-12 flex flex-col items-center">
-            <img src="../../../assets/logo-bif.png" alt="logo" class="w-20 md:w-26 mx-auto">
-            <h2 class="text-2xl md:text-4xl text-center font-semibold my-6 md:my-12">Sign in to your account</h2>
-            <div class="flex justify-center md:justify-evenly ">
-                <a href="#"
-                    class="flex items-center rounded-15px border border-boder-color py-5px px-6 md:py-2 md:px-15">
-                    <img src="../../../assets/google.png" alt="google" class="w-5 md:w-7.5">
-                </a>
-                <a href=""
-                    class="flex items-center rounded-15px border border-boder-color py-5px px-6 md:py-2 md:px-15 mx-5">
-                    <img src="../../../assets/facebook-white.png" alt="twitter" class="w-5 md:w-7.5">
-                </a>
-                <a href=""
-                    class="flex items-center rounded-15px border border-boder-color py-5px px-6 md:py-2 md:px-15">
-                    <img src="../../../assets/twitter-bg-white.png" alt="twitter" class="w-5 md:w-7.5">
-                </a>
-            </div>
-            <a href="#" class="text-2xl text-btn-blue mx-auto mt-12">Or sign in with email</a>
-        </div>
-    </div>
-</div>
-
-<div
-    class="hidden min-h-screen bg-black bg-opacity-30 z-40 fixed left-0 top-0 w-full h-full pt-[5%] px-4 sm:px-8 overflow-scroll">
-    <div class="md:w-[38.125rem] mx-auto bg-white rounded-2xl md:flex ">
-        <button class="w-3 h-3 mt-3 ml-3 hidden">
-            <img src="../../../assets/close-icon.png" alt="close icon" class="w-full">
-        </button>
-        <div class="md:flex-[95%] pt-6 pb-10 md:pb-12 flex flex-col md:items-center">
-            <img src="../../../assets/logo-bif.png" alt="logo" class="w-20 md:w-26 mx-auto">
-            <h2 class="text-2xl md:text-4xl text-center font-semibold my-8 md:my-12">Sign in to your account</h2>
-            <div class="flex justify-center md:justify-evenly ">
-                <a href="#"
-                    class="flex items-center rounded-15px border border-boder-color py-5px px-6 md:py-2 md:px-15">
-                    <img src="../../../assets/google.png" alt="google" class="w-5 md:w-7.5">
-                </a>
-                <a href=""
-                    class="flex items-center rounded-15px border border-boder-color py-5px px-6 md:py-2 md:px-15 mx-5">
-                    <img src="../../../assets/facebook-white.png" alt="twitter" class="w-5 md:w-7.5">
-                </a>
-                <a href=""
-                    class="flex items-center rounded-15px border border-boder-color py-5px px-6 md:py-2 md:px-15">
-                    <img src="../../../assets/twitter-bg-white.png" alt="twitter" class="w-5 md:w-7.5">
-                </a>
-            </div>
-            <div class="md:w-full flex items-center my-6 md:my-10 px-3.5">
-                <div class="border-t-2 border-boder-color flex-[25%]"></div>
-                <h1 class="text-sm md:text-2xl flex-40% md:flex-[50%] leading-none text-center">Or sign up with email
-                </h1>
-                <div class="border-t-2 border-boder-color flex-[25%]"></div>
-            </div>
-            <form action="" class="flex flex-col px-5 md:pl-11 md:pr-14 w-full">
-                <input type="email" name="" class="text-2xl py-5 rounded-10px shadow-xl px-5 mb-5 md:mb-10"
-                    placeholder="Email Address">
-                <input type="password" name="" class="text-2xl py-5 rounded-10px shadow-xl px-5 mb-5 md:mb-10"
-                    placeholder="Password">
-                <div class="flex justify-between items-center">
-                    <div class="items-center">
-                        <input type="checkbox" name="remember" id="remember">
-                        <label for="remember">Remember me</label>
-                    </div>
-                    <a href="#" class="">
-                        Forgot password
-                    </a>
-                </div>
-                <button
-                    class="text-white bg-btn-blue rounded-10px font-semibold text-2xl px-9 py-3 md:py-5 mx-auto block mt-7 md:mt-10"
-                    type="submit">
-                    Submit
-                </button>
-            </form>
-        </div>
-    </div>
-</div>
+<app-vip-code-modal [isVipCodeHidden]="isVipCodeHidden" (openWelcomeVipModal)="onWelcomeVip()"></app-vip-code-modal>
+<app-welcome-vip-modal [isWelcomeVipHidden]="isWelcomeVipHidden"></app-welcome-vip-modal>
