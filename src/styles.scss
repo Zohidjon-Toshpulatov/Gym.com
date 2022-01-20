@@ -1,7 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~swiper/css";
+@import "~swiper/css/pagination";
 @tailwind base;
 @tailwind components;
-
 @tailwind utilities;
 
 @layer components{
@@ -21,6 +22,10 @@
         @apply leading-none font-semibold text-sm border rounded-[5px];
     }
 
+    .popular-card{
+        @apply w-full h-auto border-x border-solid border-x-boder-color;
+    }
+
     .workout-steps-label{
         @apply py-2 rounded-[30px] text-white font-bold tracking-tight w-16 h-9 leading-none text-center
     }
@@ -35,4 +40,29 @@
     .footer-link{
         @apply text-black font-semibold text-sm lg:text-base 
     }
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
 }

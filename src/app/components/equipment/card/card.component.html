@@ -1,0 +1,21 @@
+<div class="grid grid-cols-2 lg:grid-cols-4 md:gap-x-5 xl:gap-x-10 gap-y-7.5">
+    <div class="bg-white rounded-10px py-5 border border-solid border-boder-color" *ngFor="let product of products">
+        <div class="w-full h-64">
+            <img src="{{product?.fields.imageUrl}}" alt="" class="mx-auto h-full">
+        </div>
+        <div class="mx-5 lg:mx-7.5">
+            <h1 class="text-left font-bold my-5 lg:mt-7.5 lg:mb-6">
+                {{product?.fields.name.slice(0,30)}}...
+            </h1>
+            <p class="text-center font-bold text-gray-500 mb-5">Buy On:</p>
+            <a href="{{product?.fields.affiliateUrl}}"
+                class="block border border-boder-color py-3 rounded-[5px] text-center">
+                <img src="../../../assets/amazon.png" *ngIf="product?.fields.isAmazon" alt="img"
+                    class="w-14 inline-block">
+                <img src="../../../../assets/Walmart_logo.png" *ngIf="product?.fields.isWalmart" alt="img"
+                    class="w-14 inline-block">
+                <span class="text-btn-blue font-bold text-center" *ngIf="product?.fields.isDefault">Buy Now</span>
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="px-2.5 py-10 lg:py-28 xl:mt-[88px] border-b-2 border-solid border-boder-color">
+    <div class="pl-2.5">
+        <h1 class="text-black text-xl lg:text-3xl font-bold">{{items?.fields?.name}}</h1>
+        <p class="lg:pl-2.5 text-sm lg:text-2xl text-gray-600 my-3.5 lg:my-5">{{items?.fields?.description}}</p>
+    </div>
+    <div class="hidden lg:block">
+        <ng-container *ngIf="viewItems.length">
+            <app-card [products]='viewItems'></app-card>
+        </ng-container>
+        <button class="flex items-center text-btn-blue mt-5 mx-auto" (click)="viewMore()">
+            View More
+            <img src="../../../../assets/arrow-bottom.png" alt="arrow-bottom" class="ml-1">
+        </button>
+    </div>
+    <div class="hidden md:block lg:hidden">
+        <swiper [slidesPerView]="3" [spaceBetween]="30" [slidesPerGroup]="3" [loop]="true"
+            [loopFillGroupWithBlank]="true" class="mySwiper">
+            <ng-template swiperSlide *ngFor="let product of itemProducts"
+                class="rounded-10px  border border-solid border-boder-color">
+                <app-swiper-card [product]="product"></app-swiper-card>
+            </ng-template>
+        </swiper>
+    </div>
+    <div class="md:hidden">
+        <swiper [slidesPerView]="2" [spaceBetween]="24" [slidesPerGroup]="3" [loop]="true"
+            [loopFillGroupWithBlank]="true" class="mySwiper">
+            <ng-template swiperSlide *ngFor="let product of itemProducts"
+                class="rounded-10px  border border-solid border-boder-color">
+                <app-swiper-card [product]="product"></app-swiper-card>
+            </ng-template>
+        </swiper>
+    </div>
+
+</div>

@@ -7,7 +7,7 @@ import { Component, Input, OnInit, ViewChild } from '@angular/core';
 })
 export class WaitlistModalComponent implements OnInit {
   @Input() isWaitlistModalHidden = true;
-  @ViewChild('waitlist') waitlistModal: any;
+  @ViewChild('waitlistModal') waitlistModal: any;
 
   constructor() { }
 

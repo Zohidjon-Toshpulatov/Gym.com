@@ -1,0 +1,17 @@
+<div class="bg-white rounded-10px pt-0 py-5">
+    <div class="w-full h-40 sm:h-64 rounded-10px">
+        <img src="{{product?.imageUrl}}" alt="" class="object-contain w-full h-full">
+    </div>
+    <div class="mx-2.5 md:mx-5">
+        <h1 class="text-xs text-left font-bold my-2.5 sm:my-5 lg:mt-7.5 lg:mb-6">
+            {{product?.name.slice(0,30)}}...
+        </h1>
+        <p class="text-sm font-bold text-gray-500 text-center">Buy it On:</p>
+        <a href="{{product?.affiliateUrl}}" class="block border border-boder-color py-3 rounded-[5px] ">
+            <img src="../../../assets/amazon.png" *ngIf="product.isAmazon" alt="img" class="w-[50px] inline-block">
+            <img src="../../../../assets/Walmart_logo.png" *ngIf="product.isWalmart" alt="img"
+                class="w-[50px] inline-block">
+            <span class="text-btn-blue font-bold text-center" *ngIf="product.isDefault">Buy Now</span>
+        </a>
+    </div>
+</div>

@@ -8,6 +8,8 @@ module.exports = {
       backgroundImage: {
         '-blog-header-pattern': "url('/assets/blog-header.png')",
         '-blog-header-pattern-md': "url('/assets/blog-header-md.png')",
+        '-equipment-header-pattern-md': "url('/assets/Union.png')",
+        '-equipment-header-pattern': "url('/assets/equipment.png')",
       },
       colors: {
         'body': '#F8FAFC',
@@ -20,6 +22,7 @@ module.exports = {
         '5px': '5px',
         '7.5': '1.875rem',
         '11.5': '2.875rem',
+        '12.5': '3.125rem',
         '15': '3.75rem',
         '26': '6.375rem',
         '33': '8.25rem'

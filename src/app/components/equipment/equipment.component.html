@@ -1,14 +1,43 @@
-<div class="pt-32" *ngFor="let equipment of equipments">
-    <div class="card bg-white w-[400px]">
-        <img src="{{equipment.fields.imageUrl}}" alt="card img" class="card-img w-full h-[300px]">
-        <div class="card-body text-center">
-            <h4 class="text-lg mb-7.5">
-                {{equipment.fields.name}}
-            </h4>
-            <p>{{equipment.fields.isPopular}}</p>
-            <a href="{{equipment.fields.affiliateUrl}}" class="block border border-solid border-gray-500 py-2 px-6">
-                amazon
-            </a>
-        </div>
+<header
+    class="pt-24 md:pt-33 lg:pt-[170px] xl:pl-40 lg:pr-8 lg:h-[580px] -bg-equipment-header-pattern-md bg-no-repeat bg-center md:-bg-equipment-header-pattern flex flex-col md:flex-row justify-between border-b-2 border-solid border-boder-color">
+    <img src="../../../assets/equip-header-img.png" alt="" class="md:order-2 w-60 lg:w-1/3 ml-auto">
+    <div class="hidden md:block header-content xl:w-3/5 2xl:pt-16 ml-8">
+        <h1 class="text-gray-900 text-2xl lg:text-[50px] 2xl:text-6xl font-bold mb-4">Recommended Equipment</h1>
+        <p class="text-base 2xl:text-xl text-justify pr-12.5">
+            Looking for the absolute best equipment for your exercises? The products below
+            <br class="hidden lg:block">
+            were put together by a team of professional trainers and our overall community
+            <br class="hidden lg:block">
+            voting on their favorite workout gear.
+        </p>
     </div>
+</header>
+<div class="header-content md:hidden mx-8 py-6">
+    <h1 class="text-gray-900 text-2xl mb-0 font-bold">Recommended Equipment</h1>
+    <p class="text-base 2xl:text-xl text-justify">
+        Looking for the absolute best equipment for your exercises? The products below
+        <br class="hidden lg:block">
+        were put together by a team of professional trainers and our overall community
+        <br class="hidden lg:block">
+        voting on their favorite workout gear.
+    </p>
+</div>
+<div class="mx-0 md:mx-5 xl:mx-40 relative md:-top-24 lg:-top-40">
+    <div class="mx-2.5 rounded-15px bg-white py-5 lg:py-12.5 border-2 border-solid border-boder-color">
+        <h1 class="text-xl text-gray-900 font-bold ml-9 mb-5 lg:mb-12">Popular</h1>
+        <ng-container *ngIf="popularItems">
+            <app-popular-card [items]="popularItems"></app-popular-card>
+        </ng-container>
+    </div>
+    <ng-container *ngIf="dumbells">
+        <app-product-section [items]="dumbells"></app-product-section>
+    </ng-container>
+
+    <ng-container *ngIf="barbells">
+        <app-product-section [items]="barbells"></app-product-section>
+    </ng-container>
+    <ng-container *ngIf="stationaryBike">
+        <app-product-section [items]="stationaryBike"></app-product-section>
+    </ng-container>
+
 </div>

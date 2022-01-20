@@ -16,14 +16,15 @@ export class BlogComponent implements OnInit {
 
   ngOnInit(): void {
     this.contentfulService.getProducts().then(items => {
+      console.log(items)
       this.blogs = items
         .filter(item => item.sys.contentType.sys.id === 'blogPost')
 
       this.authors = items
         .filter(item => item.sys.contentType.sys.id === 'blogAuthor')
 
-      console.log(this.blogs)
-      console.log(this.authors)
+      console.log(this.blogs[0].fields)
+      console.log(this.authors[0].fields)
     });
   }
 
