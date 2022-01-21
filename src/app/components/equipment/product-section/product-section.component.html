@@ -16,7 +16,7 @@
         <swiper [slidesPerView]="3" [spaceBetween]="30" [slidesPerGroup]="3" [loop]="true"
             [loopFillGroupWithBlank]="true" class="mySwiper">
             <ng-template swiperSlide *ngFor="let product of itemProducts"
-                class="rounded-10px  border border-solid border-boder-color">
+                class="rounded-10px  border border-solid border-boder-color bg-white">
                 <app-swiper-card [product]="product"></app-swiper-card>
             </ng-template>
         </swiper>
@@ -25,7 +25,7 @@
         <swiper [slidesPerView]="2" [spaceBetween]="24" [slidesPerGroup]="3" [loop]="true"
             [loopFillGroupWithBlank]="true" class="mySwiper">
             <ng-template swiperSlide *ngFor="let product of itemProducts"
-                class="rounded-10px  border border-solid border-boder-color">
+                class="rounded-10px  border border-solid border-boder-color bg-white">
                 <app-swiper-card [product]="product"></app-swiper-card>
             </ng-template>
         </swiper>

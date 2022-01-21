@@ -27,6 +27,11 @@ module.exports = {
         '26': '6.375rem',
         '33': '8.25rem'
       },
+      screens: {
+        '3xl': '2000px',
+        '4xl': '2400px'
+      }
+      ,
       borderRadius: {
         '10px': '10px',
         '15px': '15px',

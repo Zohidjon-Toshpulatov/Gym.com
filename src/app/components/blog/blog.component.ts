@@ -9,22 +9,18 @@ import { ContentfulService } from 'src/app/shared/contentful.service';
 })
 export class BlogComponent implements OnInit {
 
-  blogs: Entry<any>[] = [];
-  authors: Entry<any>[] = [];
+  blogs: any;
+  blogItems: any;
+  newReleased: any;
 
   constructor(private contentfulService: ContentfulService) { }
 
   ngOnInit(): void {
-    this.contentfulService.getProducts().then(items => {
-      console.log(items)
-      this.blogs = items
-        .filter(item => item.sys.contentType.sys.id === 'blogPost')
-
-      this.authors = items
-        .filter(item => item.sys.contentType.sys.id === 'blogAuthor')
-
-      console.log(this.blogs[0].fields)
-      console.log(this.authors[0].fields)
+    this.contentfulService.getBlogs().subscribe((blogs: any) => {
+      this.blogs = blogs
+      this.blogItems = this.blogs.slice(0, 4);
+      this.newReleased = blogs.filter((blog: any) => blog.isNewBlogPost === true);
+      console.log(this.newReleased);
     });
   }
 
