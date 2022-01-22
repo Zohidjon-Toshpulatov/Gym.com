@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { createClient, Entry } from 'contentful';
 import { BehaviorSubject, filter, find, map, Subject, tap } from 'rxjs';
 
@@ -18,7 +19,7 @@ export class ContentfulService {
     accessToken: CONFIG.accessToken
   });
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   getProducts() {
     return this.client.getEntries()
@@ -30,7 +31,6 @@ export class ContentfulService {
   }
 
   setBlogs(blogs: any) {
-    console.log(blogs);
     this.blogs$.next(
       blogs
         .map((blog: any) => blog.fields).
@@ -51,6 +51,30 @@ export class ContentfulService {
       return blogs.filter((blog: any) => {
         return blog.blogTitle == title;
       })
-    }))
+    }));
+  }
+
+  routePrevBlog(title: string) {
+    let index;
+    this.getBlogs().subscribe((blogs: any) => {
+      index = blogs.findIndex((blog: any) => {
+        return blog.blogTitle === title;
+      });
+      if (index > 1) {
+        this.router.navigateByUrl(`/blog/${blogs[index - 1].blogTitle}`)
+      }
+    });
+  }
+
+  routeNextBlog(title: string) {
+    let index;
+    this.getBlogs().subscribe((blogs: any) => {
+      index = blogs.findIndex((blog: any) => {
+        return blog.blogTitle === title;
+      });
+      if (index < blogs.length - 1) {
+        this.router.navigateByUrl(`/blog/${blogs[index + 1].blogTitle}`)
+      }
+    });
   }
 }

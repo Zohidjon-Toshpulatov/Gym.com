@@ -17,7 +17,6 @@ export class PopularCardComponent implements OnInit {
         return item;
       }
     });
-    console.log(this.twoItems)
   }
 
 }

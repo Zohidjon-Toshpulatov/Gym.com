@@ -1,7 +1,7 @@
 <div class="grid grid-cols-2 lg:grid-cols-4 md:gap-x-5 xl:gap-x-10 gap-y-7.5">
     <div class="bg-white rounded-10px py-5 border border-solid border-boder-color" *ngFor="let product of products">
         <div class="w-full h-64">
-            <img src="{{product?.fields.imageUrl}}" alt="" class="mx-auto h-full">
+            <img src="{{product?.fields.imageUrl}}" alt="" class="mx-auto object-contain h-full">
         </div>
         <div class="mx-5 lg:mx-7.5">
             <h1 class="text-left font-bold my-5 lg:mt-7.5 lg:mb-6">

@@ -1,14 +1,13 @@
 <div class="grid grid-cols-2 lg:grid-cols-4 gap-0 -mx-[1px]">
     <div *ngFor="let item of items" class="hidden lg:block popular-card">
         <div class="w-full">
-            <img src="{{item.fields.imageUrl}}" alt="" class="mx-auto h-72">
+            <img src="{{item.imageUrl}}" alt="" class="mx-auto h-72">
         </div>
         <div class="px-7.5 mt-5">
             <h1 class="text-center text-gray-900 font-bold">
-                {{item.fields.name.slice(0,21)}}..
+                {{item.name.slice(0,21)}}..
             </h1>
-            <a href="{{item.fields.affiliateUrl}}"
-                class="flex items-center border border-boder-color py-3 rounded-[5px] mt-5">
+            <a href="{{item.affiliateUrl}}" class="flex items-center border border-boder-color py-3 rounded-[5px] mt-5">
                 <img src="../../../assets/amazon.png" alt="" class="w-15 h-5 mx-auto">
             </a>
         </div>
@@ -16,19 +15,17 @@
 
     <div *ngFor="let item of twoItems" class="lg:hidden popular-card">
         <div class="w-full h-20 md:h-[200px] lg:h-72">
-            <img src="{{item.fields.imageUrl}}" alt="" class="mx-auto h-full">
+            <img src="{{item.imageUrl}}" alt="" class="mx-auto h-full">
         </div>
         <div class="px-7.5 mt-5">
             <h1 class="text-sm md:text-base text-center text-gray-900 font-bold">
-                {{item.fields.name.slice(0,21)}}..
+                {{item.name.slice(0,21)}}..
             </h1>
-            <a href="{{item.fields.affiliateUrl}}"
-                class="block text-center border border-boder-color py-3 rounded-[5px] mt-5">
-                <img src="../../../assets/amazon.png" *ngIf="item.fields.isAmazon" alt="img"
+            <a href="{{item.affiliateUrl}}" class="block text-center border border-boder-color py-3 rounded-[5px] mt-5">
+                <img src="../../../assets/amazon.png" *ngIf="item.isAmazon" alt="img" class="w-[50px] inline-block">
+                <img src="../../../../assets/Walmart_logo.png" *ngIf="item.isWalmart" alt="img"
                     class="w-[50px] inline-block">
-                <img src="../../../../assets/Walmart_logo.png" *ngIf="item.fields.isWalmart" alt="img"
-                    class="w-[50px] inline-block">
-                <span class="text-btn-blue font-bold text-center" *ngIf="item.fields.isDefault">Buy Now</span>
+                <span class="text-btn-blue font-bold text-center" *ngIf="item.isDefault">Buy Now</span>
             </a>
         </div>
     </div>

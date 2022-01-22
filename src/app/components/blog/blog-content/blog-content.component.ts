@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, Output, ViewChild } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ContentfulService } from 'src/app/shared/contentful.service';
 
 @Component({
@@ -9,19 +9,15 @@ import { ContentfulService } from 'src/app/shared/contentful.service';
 })
 export class BlogContentComponent implements OnInit {
   blog: any;
-  pClasses = 'text-xl';
-  headingClasses = 'text-2xl font-bold';
+  title: any
 
-  constructor(private contentfulService: ContentfulService, private activedRoute: ActivatedRoute) { }
+  constructor(private contentfulService: ContentfulService, private activedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.activedRoute.params.subscribe((params: any) => {
-      this.contentfulService.getBlog(params.title).subscribe(blogs => {
+      this.title = params.title;
+      this.contentfulService.getBlog(this.title).subscribe(blogs => {
         this.blog = blogs[0];
-        for (let item of blogs[0]?.blogContent?.content) {
-          if (item.content.length)
-            console.log(item)
-        }
       });
     })
   }
@@ -32,5 +28,12 @@ export class BlogContentComponent implements OnInit {
 
   isPara(text: any) {
     return text === 'paragraph';
+  }
+
+  onPrevBlog() {
+    this.contentfulService.routePrevBlog(this.title);
+  }
+  onNextBlog() {
+    this.contentfulService.routeNextBlog(this.title);
   }
 }

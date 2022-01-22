@@ -1,4 +1,3 @@
-import { TokenizeResult } from '@angular/compiler/src/ml_parser/lexer';
 import { Component, OnInit } from '@angular/core';
 import { Entry } from 'contentful';
 import { ContentfulService } from 'src/app/shared/contentful.service';
@@ -9,21 +8,28 @@ import { ContentfulService } from 'src/app/shared/contentful.service';
   styleUrls: ['./equipment.component.scss']
 })
 export class EquipmentComponent implements OnInit {
-  equipments: Entry<any>[] = [];
-  popularItems: any;
-  dumbells: any;
-  barbells: any;
-  stationaryBike: any;
+  popularEquipments: any;
+  productCategory: any;
 
   constructor(private contentfulService: ContentfulService) { }
 
   ngOnInit(): void {
     this.contentfulService.getProducts().then(items => {
-      this.dumbells = items.filter((item: any) => item.fields.name === 'Dumbbells')[0];
-      this.barbells = items.filter((item: any) => item.fields.name === 'Barbell')[0];
-      this.stationaryBike = items.filter((item: any) => item.fields.name === 'Stationary Bike')[0];
-      this.equipments = items.filter(item => item.sys.contentType.sys.id === 'equipment');
-      this.popularItems = this.equipments.filter(item => item.fields.isPopular === true).slice(0, 4);
+      this.productCategory = items.filter((item: any) => {
+        if (item?.fields.products) {
+          return item.fields
+        }
+      })
+      this.popularEquipments = items
+        .filter((item: any) => {
+          if (item.sys.contentType.sys.id === 'equipment' && item.fields?.isPopular) {
+            return item;
+          }
+        })
+        .map((item: any) => { return item.fields })
+        .slice(0, 4);
+
+
     });
   }
 

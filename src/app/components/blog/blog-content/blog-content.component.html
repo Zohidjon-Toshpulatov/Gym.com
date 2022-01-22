@@ -1,11 +1,15 @@
 <div class="pt-16 md:pt-24 lg:pt-40 px-5 md:px-10 lg:px-28">
     <h1 class="text-3xl font-extrabold text-black mb-2.5 md:mb-7.5">{{blog?.blogTitle}}</h1>
     <div class="flex items-center mb-5 lg:mb-9">
-        <img src="{{blog?.blogAuthor[0].fields.authorImage.src}}" alt="author image" class="w-10 h-10 rounded-3xl">
+        <div class="w-10 h-10">
+            <img src="{{blog?.blogAuthor[0].fields.authorImage.src}}" alt="author image"
+                class="object-cover h-full rounded-full">
+        </div>
         <p class="text-gray-700 text-lg pl-2.5 font-semibold">{{blog?.blogAuthor[0].fields.authorName}}</p>
     </div>
-    <img src="{{blog?.blogBannerImage.src}}" alt="bannger image"
-        class="w-full object-contain md:object-cover lg:h-[510px] rounded-15px">
+    <div class="w-full h-96 md:h-[510px]">
+        <img src="{{blog?.blogBannerImage.src}}" alt="bannger image" class="w-full object-cover h-full rounded-15px">
+    </div>
 
     <div class="" *ngFor="let item of blog?.blogContent.content">
         <h1 [ngClass]="{'text-2xl font-bold  mt-7.5 mb-6': isHeading(item?.nodeType), 'text-lg text-justify':isPara(item?.nodeType)}"
@@ -16,12 +20,12 @@
 
 </div>
 <div class="flex justify-between items-center px-10 lg:px-20 my-10">
-    <a href="/blog" class="font-medium flex items-center">
+    <button class="font-medium flex items-center" (click)="onPrevBlog()">
         <img src="../../../../assets/Arrow-Down.png" alt="arrow" class="h-6">
         Previous
-    </a>
-    <a href="/blog" class="font-medium flex items-center">
+    </button>
+    <button class="font-medium flex items-center" (click)="onNextBlog()">
         Next
         <img src="../../../../assets/ArrowR.png" alt="arrow" class="h-6">
-    </a>
+    </button>
 </div>

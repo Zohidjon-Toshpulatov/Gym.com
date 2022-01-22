@@ -24,4 +24,10 @@ export class BlogComponent implements OnInit {
     });
   }
 
+  loadMore() {
+    if (this.blogItems && this.blogs.length > this.blogItems.length) {
+      const newItems = this.blogs.slice(this.blogItems.length, this.blogItems.length + 4)
+      this.blogItems.push(...newItems)
+    }
+  }
 }

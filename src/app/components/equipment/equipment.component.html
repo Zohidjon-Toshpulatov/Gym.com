@@ -25,19 +25,13 @@
 <div class="mx-0 md:mx-5 xl:mx-40 relative md:-top-24 lg:-top-40">
     <div class="mx-2.5 rounded-15px bg-white py-5 lg:py-12.5 border-2 border-solid border-boder-color">
         <h1 class="text-xl text-gray-900 font-bold ml-9 mb-5 lg:mb-12">Popular</h1>
-        <ng-container *ngIf="popularItems">
-            <app-popular-card [items]="popularItems"></app-popular-card>
+        <ng-container *ngIf="popularEquipments">
+            <app-popular-card [items]="popularEquipments"></app-popular-card>
         </ng-container>
     </div>
-    <ng-container *ngIf="dumbells">
-        <app-product-section [items]="dumbells"></app-product-section>
+    <ng-container *ngIf=" productCategory">
+        <div *ngFor='let product of productCategory'>
+            <app-product-section [items]='product'></app-product-section>
+        </div>
     </ng-container>
-
-    <ng-container *ngIf="barbells">
-        <app-product-section [items]="barbells"></app-product-section>
-    </ng-container>
-    <ng-container *ngIf="stationaryBike">
-        <app-product-section [items]="stationaryBike"></app-product-section>
-    </ng-container>
-
 </div>

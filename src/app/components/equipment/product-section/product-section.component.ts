@@ -25,4 +25,8 @@ export class ProductSectionComponent implements OnInit {
       this.viewItems.push(...newItems)
     }
   }
+
+  isEqual() {
+    return this.viewItems?.length === this.itemProducts?.length;
+  }
 }
