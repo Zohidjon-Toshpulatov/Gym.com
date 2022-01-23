@@ -16,7 +16,7 @@
             class="" *ngIf="item?.content?.length">
             {{item?.content[0].value}}
         </div>
-        <div *ngIf="item?.data?.target?.fields?.file?.url" class="my-5 w-full max-h-screen">
+        <div *ngIf="item?.data?.target?.fields?.file?.url" class="my-5 w-full h-screen">
             <img src="{{item?.data?.target?.fields?.file.url}}" alt="text" class="object-fill w-full h-full">
         </div>
         <!-- <img *ngIf="item?.data?.target?.fields?.file?.url" src="{{item?.data?.target?.fields?.file.url}}" alt="text"
