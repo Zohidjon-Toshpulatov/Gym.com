@@ -18,9 +18,6 @@ export class BlogContentComponent implements OnInit {
       this.title = params.title;
       this.contentfulService.getBlog(this.title).subscribe(blogs => {
         this.blog = blogs[0];
-        this.blog?.blogContent?.content.forEach((e: any) => {
-          console.log(e?.data?.target?.fields);
-        });
       });
     })
   }

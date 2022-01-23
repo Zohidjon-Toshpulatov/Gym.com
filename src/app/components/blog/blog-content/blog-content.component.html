@@ -12,12 +12,15 @@
     </div>
 
     <div class="" *ngFor="let item of blog?.blogContent.content">
-        <h1 [ngClass]="{'text-2xl font-bold  mt-7.5 mb-6': isHeading(item?.nodeType), 'text-lg text-justify':isPara(item?.nodeType)}"
+        <div [ngClass]="{'text-2xl font-bold  mt-7.5 mb-6': isHeading(item?.nodeType), 'text-lg text-justify':isPara(item?.nodeType)}"
             class="" *ngIf="item?.content?.length">
             {{item?.content[0].value}}
-        </h1>
-        <img *ngIf="item?.data?.target?.fields?.file?.url" src="{{item?.data?.target?.fields?.file.url}}" alt="text"
-            class="my-5 w-full">
+        </div>
+        <div *ngIf="item?.data?.target?.fields?.file?.url" class="my-5 w-full h-screen">
+            <img src="{{item?.data?.target?.fields?.file.url}}" alt="text" class="object-fill w-full h-full">
+        </div>
+        <!-- <img *ngIf="item?.data?.target?.fields?.file?.url" src="{{item?.data?.target?.fields?.file.url}}" alt="text"
+            class="my-5 w-full"> -->
     </div>
 
 </div>
