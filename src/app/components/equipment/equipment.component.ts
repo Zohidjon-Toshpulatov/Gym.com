@@ -15,6 +15,12 @@ export class EquipmentComponent implements OnInit {
 
   ngOnInit(): void {
     this.contentfulService.getProducts().then(items => {
+      items.forEach((item: any) => {
+        console.log(item.fields)
+        if (item.sys.contentType.sys.id === 'blogImages') {
+          // console.log(item.fields)
+        }
+      })
       this.productCategory = items.filter((item: any) => {
         if (item?.fields.products) {
           return item.fields

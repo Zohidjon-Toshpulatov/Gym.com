@@ -16,6 +16,8 @@
             class="" *ngIf="item?.content?.length">
             {{item?.content[0].value}}
         </h1>
+        <img *ngIf="item?.data?.target?.fields?.file?.url" src="{{item?.data?.target?.fields?.file.url}}" alt="text"
+            class="my-5 w-full">
     </div>
 
 </div>
